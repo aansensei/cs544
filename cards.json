@@ -1,0 +1,548 @@
+{
+  "cs544-foundations": {
+    "title": "Foundations",
+    "cards": [
+      {
+        "front": "What do systems primarily manage?",
+        "back": "Resources<br><br>Major resource types: compute, memory, storage, and network"
+      },
+      {
+        "front": "what does a compiler do?",
+        "back": "translate high-level code (something a programmer would write) to low-level code, such as machine code that a CPU can directly execute"
+      },
+      {
+        "front": "what does an interpreter do?",
+        "back": "loop over high-level code and execute corresponding operations on the CPU, as the program executes"
+      },
+      {
+        "front": "What is a language (other than Java) that compiles to bytecode for the JVM?",
+        "back": "Scala is the best answer (important for us, because we'll learn Spark, which was written in Scala).<br><br>Python could technically be an answer too due to the Jython project, but this probably isn't used much in practice."
+      },
+      {
+        "front": "Consider high level code (like Python), machine code, and byte code -- what can run directly on a CPU?",
+        "back": "machine code"
+      },
+      {
+        "front": "What does JVM stand for?",
+        "back": "Java Virtual Machine"
+      },
+      {
+        "front": "What is a common extension for files containing Java bytecode?",
+        "back": ".class"
+      },
+      {
+        "front": "What is a common extension for files containing Python bytecode?",
+        "back": ".pyc"
+      },
+      {
+        "front": "What does this Python code do?<br><br>import dis<br>dis.dis(\"????\")",
+        "back": "Shows you the Python bytecode corresponding to the Python code in the string."
+      },
+      {
+        "front": "If you start using more machines, what kind of scaling is it?",
+        "back": "scaling out"
+      },
+      {
+        "front": "If you start using a more powerful machine, what kind of scaling is it?",
+        "back": "scale up"
+      },
+      {
+        "front": "What does CPU stand for?",
+        "back": "Central Processing Unit"
+      },
+      {
+        "front": "What does GPU stand for?",
+        "back": "Graphics Processing Unit"
+      },
+      {
+        "front": "What does RAM stand for?",
+        "back": "Random Access Memory"
+      },
+      {
+        "front": "What does HDD stand for?",
+        "back": "Hard Disk Drive"
+      },
+      {
+        "front": "What does SSD stand for?",
+        "back": "Solid State Disk"
+      },
+      {
+        "front": "What does NIC stand for?",
+        "back": "Network interface card/controller"
+      },
+      {
+        "front": "What does it mean for a device to provide random access?",
+        "back": "You can jump around and read from different locations efficiently."
+      },
+      {
+        "front": "What values can a bit hold?",
+        "back": "0 or 1"
+      },
+      {
+        "front": "How many different values can a byte hold?",
+        "back": "A byte has 8 bits, so there are 2^8 different possible combinations of bits.&nbsp; So 256 different values."
+      },
+      {
+        "front": "How much is 1 KB?",
+        "back": "1024 (or 1000) bytes"
+      },
+      {
+        "front": "How much is 1 MB?",
+        "back": "1024 KB (or 1000 KB)"
+      },
+      {
+        "front": "How much is 1 GB?",
+        "back": "1024 (or 1000) MB"
+      },
+      {
+        "front": "How much is 1 TB?",
+        "back": "1024 (or 1000) GB"
+      },
+      {
+        "front": "What does it mean for a device to be \"byte addressible\"?",
+        "back": "Each byte has it's own address, and the CPU can use that address to get the value.<br><br>Extracting a single bit from a byte actually involves more steps than using the whole byte."
+      },
+      {
+        "front": "What is generally faster, storage or memory?",
+        "back": "Memory"
+      },
+      {
+        "front": "What does volatile mean, and what is an example of hardware that is volatile?",
+        "back": "Volatile means you lose the contents upon reboot.&nbsp; Memory (e.g., RAM) is volatile, storage (e.g., SSD) is non-volatile."
+      },
+      {
+        "front": "What do we mean with we call HDDs and SSDs \"block devices\"?",
+        "back": "Data is read/written in blocks of many bytes (for example, 0.5 KB).<br><br>Accessing 1 byte in the block takes the same time as accessing the whole block."
+      },
+      {
+        "front": "A device can store 1000 GB, can transfer 100 MB/s, and serve one request in 10 ms.&nbsp; What kinds of metrics are these, respectively?",
+        "back": "1000 GB: capacity<br>100 MB/s: throughput<br>10 ms: latency"
+      },
+      {
+        "front": "If throughput can be expressed as X MB/s or Y Mbps, what is the relationship between X and Y?",
+        "back": "Y = X * 8<br><br>(because the \"b\" in Mbps stands for bits, and there are 8 bits in a byte)"
+      },
+      {
+        "front": "often a bunch of server machines are stacked on top of each other in a metal box called a ______ and connected with a network switch",
+        "back": "rack"
+      },
+      {
+        "front": "a large facility containing many racks of computers is called a ______",
+        "back": "data center"
+      },
+      {
+        "front": "a cluster is a ______",
+        "back": "bunch of computers working together"
+      },
+      {
+        "front": "what is a program you can use to run shell programs on another machine?",
+        "back": "ssh"
+      },
+      {
+        "front": "what is the technical term for \"folder\"?",
+        "back": "\"directory\" -- \"d\" shows up in many acronyms/commands for this reason (pwd, cd, etc)"
+      },
+      {
+        "front": "What Linux command tells you see what directory you're in?",
+        "back": "pwd"
+      },
+      {
+        "front": "What Linux command shows you all the contents of a directory?",
+        "back": "ls"
+      },
+      {
+        "front": "How do you create a new empty file, file.txt?",
+        "back": "touch file.txt"
+      },
+      {
+        "front": "What Linux command do you use to install software on Ubuntu?",
+        "back": "apt"
+      },
+      {
+        "front": "What is a Linux command you can use to download from a URL to a file on your computer?",
+        "back": "wget SOME_URL<br><br>(curl is a similar tool)"
+      },
+      {
+        "front": "What Linux command lets you rename a file?",
+        "back": "mv name1.txt name2.txt<br><br>It also lets you move a file, like this:<br><br>mv name.txt somedir"
+      },
+      {
+        "front": "How can you copy from file A to file B?",
+        "back": "cp A B"
+      },
+      {
+        "front": "What Linux command lets you copy files between computers?",
+        "back": "scp"
+      },
+      {
+        "front": "What Linux command lets you see everything in a file?",
+        "back": "cat"
+      },
+      {
+        "front": "What Linux commands let you see just the start or end of a file?",
+        "back": "head file.txt<br>tail file.txt"
+      },
+      {
+        "front": "What Linux command creates a new directory?",
+        "back": "mkdir somedir"
+      },
+      {
+        "front": "What command lets you see entries in the Linux manual?",
+        "back": "man SOMECOMMAND"
+      },
+      {
+        "front": "How do you navitage to a new directory?",
+        "back": "cd SOMEDIR"
+      },
+      {
+        "front": "How do you run commands as the root user?",
+        "back": "sudo COMMAND"
+      },
+      {
+        "front": "What Linux command lets you change the access permissions on a file?",
+        "back": "chmod"
+      },
+      {
+        "front": "Given a program name, how can you find where it is on your computer?",
+        "back": "which PROGRAMNAME"
+      },
+      {
+        "front": "How can you see an environment variable (for example, PATH)?",
+        "back": "echo $PATH"
+      },
+      {
+        "front": "How can you pipe the standard output of A to the standard input of B?",
+        "back": "A | B"
+      },
+      {
+        "front": "How do you redirect the standard output of A to file.txt, creating file.txt (or <b>replacing</b> any prior content)?",
+        "back": "A &gt; file.txt"
+      },
+      {
+        "front": "How do you redirect the standard output of A to file.txt, creating file.txt (or <b>appending</b> to the end of any prior content)?",
+        "back": "A &gt;&gt; file.txt"
+      },
+      {
+        "front": "How do you send BOTH standard output and standard error to a file?",
+        "back": "myprogram &amp;&gt; file.txt"
+      },
+      {
+        "front": "What program counts lines, words, and characters?",
+        "back": "wc"
+      },
+      {
+        "front": "What program filters standard input, writing matching lines to standard output?",
+        "back": "grep"
+      },
+      {
+        "front": "What program recursively finds directories and files?",
+        "back": "find"
+      },
+      {
+        "front": "How can you run a program asyncronously?&nbsp; (meaning you can type other things on the prompt while waiting for it to finish)",
+        "back": "longprogram &amp;"
+      },
+      {
+        "front": "How can you see running programs and their PIDs?&nbsp; (process IDs)",
+        "back": "ps<br><br>To see more:<br><br>ps ax<br><br>a=other users<br>x=not just processes attached to a terminal"
+      },
+      {
+        "front": "How do you kill a process by its PID number?",
+        "back": "kill PID"
+      },
+      {
+        "front": "How do you kill a process by its name?",
+        "back": "pkill NAME"
+      },
+      {
+        "front": "How can you see CPU and memory usage on your machine?",
+        "back": "htop"
+      },
+      {
+        "front": "What Linux command shows you disk utilization?",
+        "back": "df<br><br>(\"df -h\" shows human readable)"
+      },
+      {
+        "front": "What command shows you disk usage by everything in the current directory?",
+        "back": "du -hs ."
+      },
+      {
+        "front": "How can you see most port numbers being used by processes on your machine?",
+        "back": "sudo ss -tlpn"
+      },
+      {
+        "front": "If a file is continually growing (for example, a program is logging to it), how can you run the \"tail\" command so that you keep seeing additional content as it is written to the file?",
+        "back": "tail -f somefile.txt<br><br>Without following (-f), tail will print the current end of the file and exit, without waiting for future data to be written."
+      },
+      {
+        "front": "What keyboard shortcut can you use to run the previous shell command again?",
+        "back": "Up arrow key"
+      },
+      {
+        "front": "What keyboard shortcut can you use to kill a program running in a shell",
+        "back": "Control C<br>(it's not copy!)"
+      },
+      {
+        "front": "What keyboard shortcut can you use to indicate you are done typing, and want to exit the shell (or other program taking input)?",
+        "back": "Control D"
+      },
+      {
+        "front": "What keyboard shortcut can you use to search over previous shell commands?",
+        "back": "Control R<br>(reverse search)"
+      },
+      {
+        "front": "In the shell, if you start typing a few characters and want the shell to complete it, what key should you hit?",
+        "back": "TAB"
+      },
+      {
+        "front": "How can you set an environment variable MYVAR to value xyz, in a way that's visible to programs you will later launch in the shell session?",
+        "back": "export MYVAR=xyz"
+      },
+      {
+        "front": "If you want to download an image X from DockerHub to your VM, what command do you use?",
+        "back": "docker pull X"
+      },
+      {
+        "front": "How can you see all the Docker images on your VM?",
+        "back": "docker images"
+      },
+      {
+        "front": "How can you give a Docker image \"a\" an additional second name, \"b\"?",
+        "back": "docker tag a b"
+      },
+      {
+        "front": "How can you launch a container from image X?",
+        "back": "docker run X"
+      },
+      {
+        "front": "How can you see existing containers, including those exited?",
+        "back": "For running containers:<br>docker ps<br><br>For exited ones too, add \"-a\":<br>docker ps -a"
+      },
+      {
+        "front": "How can you delete a container X?",
+        "back": "docker rm X"
+      },
+      {
+        "front": "How can you delete an image X?",
+        "back": "docker rmi X"
+      },
+      {
+        "front": "How can you see Docker's disk utilization?",
+        "back": "docker system df"
+      },
+      {
+        "front": "How can you cleanup unnecessary Docker data to free up space?",
+        "back": "docker system prune"
+      },
+      {
+        "front": "How can you see the output (for example prints) for an application running inside container X?",
+        "back": "docker logs X"
+      },
+      {
+        "front": "How do you run a command (lets say \"ls\") inside a running container X?",
+        "back": "docker exec X ls"
+      },
+      {
+        "front": "How do you see resource consumption of running containers?",
+        "back": "docker stats"
+      },
+      {
+        "front": "How do you get a bash shell inside an existing container X?",
+        "back": "docker exec -it X bash"
+      },
+      {
+        "front": "How do you cause a container X to immediately quit?",
+        "back": "docker kill X<br><br>This sends a kill signal, which the container cannot ignore."
+      },
+      {
+        "front": "How do you use the Dockerfile in the current directory to build an image X?",
+        "back": "docker build . -t X"
+      },
+      {
+        "front": "What is the difference between \"docker rm\" and \"docker kill\"",
+        "back": "After \"docker kill\", the container won't be running, but it will still exist (you can see it with \"docker ps -a\").&nbsp; \"docker rm\" actually cleans up the space that was used by that container."
+      },
+      {
+        "front": "In a Dockerfile, how do you specify a base image X?",
+        "back": "FROM X"
+      },
+      {
+        "front": "In a Dockerfile, how do you execute a command, say \"apt update\"?",
+        "back": "RUN apt update"
+      },
+      {
+        "front": "In a Dockerfile, how do you copy a file X.txt (in the same directory on the VM) to /Y.txt (in the image)?",
+        "back": "COPY X.txt /Y.txt"
+      },
+      {
+        "front": "In a Dockerfile, why is a single install line preferred?<br><br>RUN apt-get update &amp;&amp; apt-get install -y ...<br><br>In contrast to two lines:<br><br>RUN apt-get update<br>RUN apt-get install -y ...",
+        "back": "The \"update\" refreshes the VM's knowledge of what packages are in the apt repositories, and \"install\" actuall installs something from a repository.&nbsp; If you wait too long between an update and install, apt's view of the repositories will be stale, and the install won't work.<br><br>Docker builds cache results on a line-by-line basis to avoid running repeat commands.&nbsp; That means that it might not run \"apt-get update\" again if it has been run previously.&nbsp; Usually that's ok, but in this case we want it to be recent."
+      },
+      {
+        "front": "How do you cause a container X to quit gracefully?",
+        "back": "docker stop X<br><br>This sends a terminate signal to the container, which the application can catch and then handle by cleaning up before stopping.&nbsp; If it takes too long, a kill signal will be sent, though."
+      }
+    ]
+  },
+  "cs544-networking": {
+    "title": "Networking",
+    "cards": [
+      {
+        "front": "How many bits are in a MAC address?",
+        "back": "48"
+      },
+      {
+        "front": "What does the prefix of a MAC address indicate?",
+        "back": "The vendor/manufacter that produced the NIC<br><br>This is so that we can achieve globally unique MAC addresses (each vendor gets a prefix, and is expected not to reuse the same suffix for different devices)."
+      },
+      {
+        "front": "How can you see the MAC addresses and IP addresses for your NICs?",
+        "back": "ip address"
+      },
+      {
+        "front": "What is a virtual NIC that is only reachable from the local machine, and what IP address does it use?",
+        "back": "The \"loopback\" device, which has address 127.0.0.1"
+      },
+      {
+        "front": "What is a network?",
+        "back": "A collection of computers that can send each other messages by MAC address"
+      },
+      {
+        "front": "Within a network, what device can forward data that is sent to a specific MAC address?",
+        "back": "A switch"
+      },
+      {
+        "front": "What is the device that connects multiple networks to form an internet, or the Internet?",
+        "back": "a router"
+      },
+      {
+        "front": "How many bits does an IPv4 address contain, and how many possible addresses are there?",
+        "back": "32 bits, and about 4 billion possible addresses"
+      },
+      {
+        "front": "What does the prefix of an IP address tell you?",
+        "back": "It identifies the network"
+      },
+      {
+        "front": "Why do routers forward based on IP address rather than MAC address?",
+        "back": "Because there are too many MAC addresses in the world, and forwarding tables would need to be too big if every router needed to remember where every MAC address lives.<br><br>With IP addresses, IPs with the same prefix are on the same network.&nbsp; A router just needs to know where to forward data to get it closer to the correct network."
+      },
+      {
+        "front": "The following are private IP ranges, meaning multiple networks can use the same IPs from these ranges internally:<br><br>192.168.0.0&nbsp;to&nbsp;192.168.255.255<br>172.16.0.0&nbsp;to&nbsp;172.31.255.255<br>10.0.0.0&nbsp;to&nbsp;10.255.255.255<br><br>What device/software can let us connect to machines using these IPs, given they are not unique?",
+        "back": "A NAT (network address translation).<br><br>It can map a unique public address to one or more private IPs within a network."
+      },
+      {
+        "front": "What is something that both UDP and TCP add in addition to what IP provides?",
+        "back": "The both provide port numbers, which let us direct communication to a specific process on a machine"
+      },
+      {
+        "front": "What is something that TCP provides that UDP does not?",
+        "back": "TCP provides more reliable communication:<br><br>retry when a packet is dropped<br><br>buffer packets on receiving side and re-arrange so they arrive in the same order they were sent"
+      },
+      {
+        "front": "What does UDP stand for?",
+        "back": "User Datagram Protocol"
+      },
+      {
+        "front": "What does TCP stand for?",
+        "back": "Transmission Control Protocol"
+      },
+      {
+        "front": "Why would you ever prefer UDP over TCP?",
+        "back": "TCP does extra work, which is sometimes not necessary.&nbsp; For example, in a Zoom call, if some packets are dropped the session may freeze.&nbsp; After that, it's more natural for humans to repeat what they were saying (it would be weird if it replayed video/audio from the few seconds when the connection was lost)."
+      },
+      {
+        "front": "What is the relationship between domain names in a URL and IP addresses?<br><br>Example:<br><br><div><div>https://tyler.caraza-harter.com:443/cs544/s23/schedule.html</div></div>",
+        "back": "When you enter a domain name into a browser, it gets translated to an IP address automatically for you."
+      },
+      {
+        "front": "If you are using HTTP over TCP/IP, what functionality does TCP/IP provide, and what does HTTP provide?",
+        "back": "TCP/IP gives you IP addresses and port numbers, letting you communicate with a specific process (a server on a specific machine.<br><br>HTTP additionally lets you specify what resource you want to access via that server.<br><br>For example, consider this URL:<br><br><div>https://tyler.caraza-harter.com:443/cs544/s23/schedule.html</div><div><br></div><div>The resource is \"/cs544/s23/schedule.html\"</div>"
+      },
+      {
+        "front": "What does RPC stand for?",
+        "back": "Remote Procedure Call<br><br>Procedure: another name for a function/method<br>Remote: we want it to run on a different process/container/computer"
+      },
+      {
+        "front": "What are the RPC implementations created by Meta and Google called, respectively?",
+        "back": "Thrift and gRPC"
+      },
+      {
+        "front": "What is gRPC layered on top of?",
+        "back": "HTTP<br><br>Every method call is an HTTP POST request.&nbsp; The arguments go in the request body, the return value goes in the response body."
+      },
+      {
+        "front": "What is it called when we convert various data types into bytes to send over the wire?&nbsp; What about the reverse conversion?",
+        "back": "serialization/deserialization"
+      },
+      {
+        "front": "What does gRPC use for serialization?",
+        "back": "Protocol Buffers (protobufs for short)"
+      },
+      {
+        "front": "What is variable-length encoding, and what are the pros/cons of using it?",
+        "back": "Use more space for bigger numbers.&nbsp; E.g., if an int32 value is small enough, we could use 1, 2, or 3 bytes (instead of the usual 4).<br><br>Pros: save space.&nbsp; Very important for sending data over the network, so protobufs do this.<br>Cons: CPUs cannot directly operate on int32's unless they are 4 bytes, so conversion is necessary before sending and after receiving this data."
+      },
+      {
+        "front": "Port forwarding: if we want to forward port 300 of the loopback device on a VM to port 80 inside a container, how do we run the container?",
+        "back": "<div>docker run -p 127.0.0.1:300:80 myimg</div>"
+      },
+      {
+        "front": "What does this do?<br><br><div>ssh USER@VM -L localhost:1234:localhost:5678</div>",
+        "back": "This is executed on a machine (say your laptop) to create an SSH tunnel to the VM.&nbsp; While the tunnel is in use, any requests to localhost:1234 on the laptop will be forwarded to localhost:5678 on the VM (\"localhost\" is not redundant here because it is referring to two different loopback devices, the one on the laptop and the one on the VM)."
+      },
+      {
+        "front": "<div>Consider this:</div><div><br></div><div>docker run -d -p 300:80 myimg</div><div><br></div><div>We specify the port on the VM (300) and container (80), but we don't specify which NIC.&nbsp; What will be used?</div>",
+        "back": "By default, the command is equivalent to this:<br><br><div>docker run -d -p 0.0.0.0:300:80 myimg</div><div><br></div><div>This means traffic on all of the VM's NICs will forward to the container (possibly a security risk, depending on your firewall settings).</div><div><br></div><div>Inside the container, it will forward to whatever the main NIC is (e.g., eth0), NOT the loopback device (so anything inside the container should listen on 0.0.0.0, not localhost).</div>"
+      },
+      {
+        "front": "What is container orchestration, and what is currently a very popular orchestrator?",
+        "back": "Orchestration lets you deploy cooperating containers across many different machines.<br><br>Kubernetes is probably the most well known."
+      },
+      {
+        "front": "What does \"docker compose\" do?",
+        "back": "Lets you start a bunch of cooperating containers on the same machine."
+      },
+      {
+        "front": "protobuf files (.proto) can support two different syntaxes, v2 and v3.&nbsp; If you want v3, what should the first line of your .proto be?",
+        "back": "<b><span style=\"font-weight: 400;\">syntax = \"proto3\";</span></b>"
+      },
+      {
+        "front": "What are the two main things a .proto file contains?",
+        "back": "messages<br>services<br><br>Example:<br><br><div>message MyMessage {</div><div>&nbsp; ...</div><div>}</div><div><br></div><div><div>service MyService {</div><div>&nbsp; ...</div><div>}</div><br></div>"
+      },
+      {
+        "front": "In a .proto file, what does a message contain?",
+        "back": "Fields, each with a type and a number, like this:<br><br><div>message MyMessage {</div><div>&nbsp;&nbsp;int32 x = 1;</div><div>&nbsp;&nbsp;int32 y = 2;</div><div>}</div>"
+      },
+      {
+        "front": "In a .proto file, what does a service contain?",
+        "back": "RPCs, like this:<br><br><div>service MyService {</div><div>&nbsp;&nbsp;rpc MyRPC(Message1) returns (Message2);</div><div>}</div><div><br></div><div>Each RPC has one message containing arguments and another containing return values.</div>"
+      },
+      {
+        "front": "When you generate code for a .proto file, you get two files:<br><br><b><span style=\"font-weight: 400;\">????_pb2<br>????_pb2_grpc<br></span></b><br>What are they each for?",
+        "back": "<b><span style=\"font-weight: 400;\">????_pb2: code for serializing/deserializing the messages<br><br>????_pb2_grpc: servicer (class to be inherited from) and stubs for making remote procedure calls</span></b>"
+      },
+      {
+        "front": "Consider this:<br><br>python3 -u server.py &amp;&gt; log.txt<br><br>What does \"-u\" do?",
+        "back": "<div>\"force the stdout and stderr streams to be unbuffered\"</div><div><br></div><div>Otherwise, if its buffered, any prints from server.py might not immediately appear in log.txt (that can be confusing if you're using log.txt to debug).</div>"
+      },
+      {
+        "front": "If you have a&nbsp;docker-compose.yml in the current directory, and you want to start running the services defined, what can you do?",
+        "back": "docker compose up"
+      },
+      {
+        "front": "If you want to see the compose containers currently running, what do you do?",
+        "back": "docker compose ps"
+      },
+      {
+        "front": "If you want to stop running containers for a compose cluster, what can you do?",
+        "back": "docker compose down"
+      },
+      {
+        "front": "If you want to delete all containers for a docker compose cluster, what can you do?",
+        "back": "docker compose rm<br><br>(add -f to force it; for example, might be necessary if they're currently running)"
+      }
+    ]
+  }
+}
