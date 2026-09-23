@@ -37,6 +37,7 @@
     color: var(--text);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-x: none;
   }
   body {
     min-height: 100vh;
@@ -136,6 +137,8 @@
     width: 100%;
     min-height: 300px;
     flex: 1;
+    touch-action: pan-y;
+    overscroll-behavior-x: none;
   }
   .card {
     position: relative;
@@ -507,17 +510,20 @@
       wrap.addEventListener("pointercancel", function () { dragStart = null; });
 
       var wheelAccum = 0;
+      var wheelLocked = false;
       var wheelResetTimer = null;
       wrap.addEventListener("wheel", function (e) {
         if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
-        wheelAccum += e.deltaX;
+        if (e.cancelable) e.preventDefault();
         clearTimeout(wheelResetTimer);
-        wheelResetTimer = setTimeout(function () { wheelAccum = 0; }, 150);
+        wheelResetTimer = setTimeout(function () { wheelAccum = 0; wheelLocked = false; }, 150);
+        if (wheelLocked) return;
+        wheelAccum += e.deltaX;
         if (Math.abs(wheelAccum) > 80) {
+          wheelLocked = true;
           if (wheelAccum > 0) goTo(state.index + 1); else goTo(state.index - 1);
-          wheelAccum = 0;
         }
-      }, { passive: true });
+      }, { passive: false });
     }
   }
 
