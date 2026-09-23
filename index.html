@@ -303,6 +303,7 @@
 <script>
 (function () {
   var STORAGE_KEY = "cs544_flashcards_progress_v1";
+  var justSwiped = false;
 
   var state = {
     decks: {},
@@ -457,7 +458,10 @@
     state.deckOrder = Object.keys(data);
     setActiveDeck("all");
 
-    document.getElementById("card").addEventListener("click", flip);
+    document.getElementById("card").addEventListener("click", function () {
+      if (justSwiped) return;
+      flip();
+    });
     document.getElementById("prevBtn").addEventListener("click", function () { goTo(state.index - 1); });
     document.getElementById("nextBtn").addEventListener("click", function () { goTo(state.index + 1); });
     document.getElementById("againBtn").addEventListener("click", function () { grade("again"); });
@@ -481,21 +485,39 @@
       else if (e.key === "2") grade("good");
     });
 
-    var startX = null;
-    wrapSwipe();
-    function wrapSwipe() {
+    setupGestures();
+    function setupGestures() {
       var wrap = document.getElementById("cardWrap");
-      wrap.addEventListener("touchstart", function (e) {
-        startX = e.touches[0].clientX;
-      }, { passive: true });
-      wrap.addEventListener("touchend", function (e) {
-        if (startX === null) return;
-        var dx = e.changedTouches[0].clientX - startX;
-        if (Math.abs(dx) > 60) {
+      var dragStart = null;
+
+      wrap.addEventListener("pointerdown", function (e) {
+        dragStart = { x: e.clientX, y: e.clientY };
+      });
+      wrap.addEventListener("pointerup", function (e) {
+        if (!dragStart) return;
+        var dx = e.clientX - dragStart.x;
+        var dy = e.clientY - dragStart.y;
+        dragStart = null;
+        if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) {
+          justSwiped = true;
+          setTimeout(function () { justSwiped = false; }, 50);
           if (dx > 0) goTo(state.index + 1); else goTo(state.index - 1);
         }
-        startX = null;
       });
+      wrap.addEventListener("pointercancel", function () { dragStart = null; });
+
+      var wheelAccum = 0;
+      var wheelResetTimer = null;
+      wrap.addEventListener("wheel", function (e) {
+        if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+        wheelAccum += e.deltaX;
+        clearTimeout(wheelResetTimer);
+        wheelResetTimer = setTimeout(function () { wheelAccum = 0; }, 150);
+        if (Math.abs(wheelAccum) > 80) {
+          if (wheelAccum > 0) goTo(state.index + 1); else goTo(state.index - 1);
+          wheelAccum = 0;
+        }
+      }, { passive: true });
     }
   }
 
