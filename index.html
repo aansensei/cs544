@@ -511,17 +511,22 @@
 
       var wheelAccum = 0;
       var wheelLocked = false;
-      var wheelResetTimer = null;
+      var wheelIdleTimer = null;
+      var wheelCooldownTimer = null;
       wrap.addEventListener("wheel", function (e) {
         if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
         if (e.cancelable) e.preventDefault();
-        clearTimeout(wheelResetTimer);
-        wheelResetTimer = setTimeout(function () { wheelAccum = 0; wheelLocked = false; }, 150);
         if (wheelLocked) return;
+        clearTimeout(wheelIdleTimer);
+        wheelIdleTimer = setTimeout(function () { wheelAccum = 0; }, 120);
         wheelAccum += e.deltaX;
         if (Math.abs(wheelAccum) > 80) {
           wheelLocked = true;
-          if (wheelAccum > 0) goTo(state.index + 1); else goTo(state.index - 1);
+          clearTimeout(wheelIdleTimer);
+          goTo(state.index + (wheelAccum > 0 ? 1 : -1));
+          wheelAccum = 0;
+          clearTimeout(wheelCooldownTimer);
+          wheelCooldownTimer = setTimeout(function () { wheelLocked = false; }, 350);
         }
       }, { passive: false });
     }
